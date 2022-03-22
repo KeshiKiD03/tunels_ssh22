@@ -104,7 +104,12 @@ ssh -L 50000:localhost:2013
 
 #### **Tunel DIRECTO**
 
-
+```diff
+- text in red
++ text in green
+! orange
+# text in gray
+```
 
 * `ssh -L 50000:localhost:2013 aaron@10.200.243.214`
 
