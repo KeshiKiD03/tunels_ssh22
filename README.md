@@ -112,6 +112,14 @@ ssh -L 50000:localhost:2013
 @@ purple @@
 ```
 
+```diff
+- text in red
++ text in green
+! orange
+# text in gray
+@@ Hola es una prueba @@
+```
+
 
 * `ssh -L 50000:localhost:2013 aaron@10.200.243.214`
 
