@@ -50,11 +50,54 @@
 
 2. `systemctl stop xinetd` - `systemctl start xinetd`
 
-3. `nmap localhost`
+3. Crear un nuevo servidor: `DAYTIME2 (PORT 2013)` `(En el HOST Destino)`
 
-3.1 nmap ip_publica --> nmap 10.200.243.211
+```diff
+- 1. ssh aaron@10.200.243.214
 
-4. `telnet localhost 13`
+- 2. su -l
+
+- 3. cd /etc/xinetd.d/ && cp daytime daytime2
+
+- 4. Dentro de `daytime2`:
+
+service daytime2
+{  
+    disable     = no  
+    type        = UNLISTED
+    socket_type = stream
+    protocol    = tcp
+    wait        = no
+    redirect    = 127.0.0.1 13
+    bind        = 0.0.0.0 
+    port        = 2013 
+    user        = nobody
+}
+
+```
+
+4. `nmap localhost` o `nmap 10.200.243.214` (Host DESTINO)
+
+<div style="padding: 5%">
+    <img src="./Photos/NmapLocalhostDestino.png" />
+</div>
+
+
+5. `nmap ip_publica` --> `nmap 10.200.243.211` (HOST LOCAL)
+
+<div style="padding: 5%">
+    <img src="./Photos/NmapLocalhostLocal.png" />
+</div>
+
+6. `telnet localhost 13` (HOST DESTINO)
+
+> Hace el redirect
+
+<div style="padding: 5%">
+    <img src="./Photos/TelnetLocalhost13.png" />
+</div>
+
+
 
 > CHEATS: TELNET QUIT = CTRL + CLAUDATOR --> telnet> quit
 
@@ -65,6 +108,10 @@
 <br>
 
 ### **Ejemplo Apache2**
+
+Tener instalado el `APACHE2`
+
+`apt-get install apache2`
 
 > Métodos de visualización: 
 
@@ -123,7 +170,7 @@ ssh -L 50000:localhost:2013
 
 * `ssh -L 50000:localhost:2013 aaron@10.200.243.214`
 
- * telnet localhost 50000
+ * `telnet localhost 50000`
 
 * 
 
