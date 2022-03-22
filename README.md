@@ -109,9 +109,8 @@ ssh -L 50000:localhost:2013
 + text in green
 ! orange
 # text in gray
+@@ purple @@
 ```
-
-<span style="color: green"> Some green text </span>
 
 
 * `ssh -L 50000:localhost:2013 aaron@10.200.243.214`
